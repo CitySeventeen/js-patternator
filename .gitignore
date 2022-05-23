@@ -38,3 +38,4 @@ lib/
 
 #Mac
 .DS_Store
+/nbproject/private/

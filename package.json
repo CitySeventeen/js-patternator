@@ -1,8 +1,8 @@
 {
-  "name": "go-patterns",
+  "name": "js-patternator",
   "version": "3.0.1",
   "description": "JavaScript Design Pattern Generator",
-  "main": "lib/go-patterns.js",
+  "main": "lib/js-patternator.js",
   "scripts": {
     "precommit": "npm run test",
     "clean": "rm -rf dist/ lib/ && mkdir -p lib/ dist/",
@@ -16,7 +16,8 @@
     "lintfix": "./node_modules/.bin/eslint src/** specs/** --fix",
     "setup": "npm run copyhooks",
     "reinstall": "rm -rf node_modules/ && npm install",
-    "copyhooks": "cp -fr ./build/pre-commit .git/hooks/pre-commit"
+    "copyhooks": "cp -fr ./build/pre-commit .git/hooks/pre-commit",
+    "test jasmine": ""
   },
   "repository": {
     "type": "git",
@@ -31,9 +32,11 @@
     "patternity",
     "patternify",
     "protopattern",
-    "patternizer"
+    "patternizer",
+    "js-patternator"
   ],
   "author": "Pablo Garcia",
+  "contributors": ["Raffaele Balsamo <raffaelebalsamo91@gmail.com> (https://github.com/CitySeventeen)"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pgarciacamou/go-patterns/issues"
