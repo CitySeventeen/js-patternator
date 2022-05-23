@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, jasmine */
+/* global expect, beforeEach, it, describe, jasmine */
 import mediatorBuilder from '../../../../src/patterns/behavioral/mediator.js';
 
 describe('mediator', function() {

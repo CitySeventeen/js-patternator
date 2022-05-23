@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, jasmine, spyOn */
+/* global expect, beforeEach, it, describe, jasmine, spyOn */
 import mementoBuilder from '../../../../src/patterns/behavioral/memento.js';
 import commandBuilder from '../../../../src/patterns/behavioral/command.js';
 import chainOfResponsibilityBuilder from '../../../../src/patterns/behavioral/chainOfResponsibility.js';

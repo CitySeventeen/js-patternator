@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, jasmine */
+/* global expect, beforeEach, it, describe, jasmine */
 import factoryBuilder from '../../../../src/patterns/creational/factory.js';
 import singletonBuilder from '../../../../src/patterns/creational/singleton.js';
 

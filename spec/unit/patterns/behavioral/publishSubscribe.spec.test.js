@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, afterEach, it, describe, jasmine */
+/* global expect, beforeEach, afterEach, it, describe, jasmine */
 import publishSubscribeBuilder from '../../../../src/patterns/behavioral/publishSubscribe.js';
 
 describe('publish subscribe pattern', function() {

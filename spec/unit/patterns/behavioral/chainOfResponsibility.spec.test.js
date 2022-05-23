@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, jasmine */
+/* global expect, beforeEach, it, describe, jasmine */
 import chainOfResponsibilityBuilder from '../../../../src/patterns/behavioral/chainOfResponsibility.js';
 
 describe('chain of responsibility', function() {

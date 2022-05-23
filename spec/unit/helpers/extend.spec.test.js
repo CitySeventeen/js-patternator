@@ -1,4 +1,4 @@
-/* globals expect, it, describe, jasmine, beforeEach */
+/* global expect, it, describe, jasmine, beforeEach */
 import extend from '../../../src/helpers/extend.js';
 
 describe('extend helper', function() {

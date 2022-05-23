@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, jasmine */
+/* global expect, beforeEach, it, describe, jasmine */
 import commandBuilder from '../../../../src/patterns/behavioral/command.js';
 
 describe('command', function() {

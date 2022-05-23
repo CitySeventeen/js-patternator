@@ -1,4 +1,4 @@
-/* globals expect, beforeEach, it, describe, spyOn */
+/* global expect, beforeEach, it, describe, spyOn */
 import flyweightBuilder from '../../../../src/patterns/structural/flyweight.js';
 import singletonBuilder from '../../../../src/patterns/creational/singleton.js';
 import factoryBuilder from '../../../../src/patterns/creational/factory.js';

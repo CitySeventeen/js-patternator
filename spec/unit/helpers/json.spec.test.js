@@ -1,4 +1,4 @@
-/* globals expect, it, beforeEach, describe */
+/* global expect, it, beforeEach, describe */
 import json from '../../../src/helpers/json.js';
 
 describe('json', function() {

@@ -1,4 +1,4 @@
-/* globals document, expect, beforeEach, it, describe, spyOn, jasmine */
+/* global document, expect, beforeEach, it, describe, spyOn, jasmine */
 import mvwBuilder from '../../../../src/patterns/architectural/mvw.js';
 
 function dispatchEvent(element, eventName, eventData) {

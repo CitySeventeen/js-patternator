@@ -1,4 +1,5 @@
-/* globals expect, it, describe, beforeEach */
+/* global expect, it, describe, beforeEach, Function */
+
 import createNew from '../../../src/helpers/createPatternBuilder.js';
 
 describe('build pattern helper', function() {
