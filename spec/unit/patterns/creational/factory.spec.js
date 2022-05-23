@@ -3,9 +3,9 @@ import factoryBuilder from '../../../../src/patterns/creational/factory.js';
 import singletonBuilder from '../../../../src/patterns/creational/singleton.js';
 
 describe('Factory', function() {
-  var CarFactory;
-  var Honda, Civic, civic;
-  var Toyota, Corolla, corolla;
+  let CarFactory;
+  let Honda, Civic, civic;
+  let Toyota, Corolla, corolla;
   beforeEach(function() {
     Civic = class {
       constructor(year) {
@@ -39,11 +39,11 @@ describe('Factory', function() {
     corolla = Toyota.create('corolla', 2015);
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Factory = factoryBuilder(emptyOptions).build();
-    var factory = new Factory();
+    let emptyOptions = undefined;
+    let Factory = factoryBuilder(emptyOptions).build();
+    let factory = new Factory();
     factory.add('product', (arg) => ({test: arg}));
-    var product = factory.create('product', 'testing');
+    let product = factory.create('product', 'testing');
     expect(product.test).toEqual('testing');
   });
   it('should create a Factory', function() {
@@ -67,9 +67,9 @@ describe('Factory', function() {
     expect(CarFactory.test).toBeDefined();
   });
   describe('Mid Level: Singleton Factory', function() {
-    var SingletonFactory;
-    var Constructor;
-    var singletonFactory;
+    let SingletonFactory;
+    let Constructor;
+    let singletonFactory;
     beforeEach(function() {
       Constructor = function(arg) {
         this.param = arg;
@@ -87,14 +87,14 @@ describe('Factory', function() {
     });
   });
   describe('Advanced Level: Factory of factories', function() {
-    var FactoryOfFactories;
-    var factoryOfFactories;
-    var Factory;
-    var SingletonFactory;
-    var factory;
-    var singletonFactory;
-    var factorySpy;
-    var singletonSpy;
+    let FactoryOfFactories;
+    let factoryOfFactories;
+    let Factory;
+    let SingletonFactory;
+    let factory;
+    let singletonFactory;
+    let factorySpy;
+    let singletonSpy;
 
     beforeEach(function() {
       factorySpy = jasmine.createSpy('factorySpy');

@@ -2,9 +2,9 @@
 import json from '../../../src/helpers/json.js';
 
 describe('json', function() {
-  var obj;
-  var stringified;
-  var parsed;
+  let obj;
+  let stringified;
+  let parsed;
   beforeEach(function() {
     obj = {
       test: 'testing'

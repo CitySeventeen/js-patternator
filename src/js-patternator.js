@@ -9,7 +9,7 @@ import flyweight from './patterns/structural/flyweight.js';
 import mvw from './patterns/architectural/mvw.js';
 import createNew from './helpers/createPatternBuilder.js';
 
-var patterns = {
+let patterns = {
   singleton,
   factory,
   publishSubscribe,

@@ -2,9 +2,9 @@
 import publishSubscribeBuilder from '../../../../src/patterns/behavioral/publishSubscribe.js';
 
 describe('publish subscribe pattern', function() {
-  var updateSpy;
-  var PublishSubscribe;
-  var publishSubscribe;
+  let updateSpy;
+  let PublishSubscribe;
+  let publishSubscribe;
   beforeEach(function() {
     updateSpy = jasmine.createSpy('test');
     PublishSubscribe = publishSubscribeBuilder().build();
@@ -15,9 +15,9 @@ describe('publish subscribe pattern', function() {
     publishSubscribe.unsubscribe('test', updateSpy);
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var PublishSubscribe = publishSubscribeBuilder(emptyOptions).build();
-    var publishSubscribe = new PublishSubscribe();
+    let emptyOptions = undefined;
+    let PublishSubscribe = publishSubscribeBuilder(emptyOptions).build();
+    let publishSubscribe = new PublishSubscribe();
     publishSubscribe.subscribe('test', (arg) => {
       expect(arg).toEqual('testing');
     });
@@ -33,7 +33,7 @@ describe('publish subscribe pattern', function() {
     expect(updateSpy.calls.count()).toEqual(2);
   });
   it('should implement method chainable pattern', function() {
-    var t = 'test';
+    let t = 'test';
     publishSubscribe.subscribe(t, ()=>{}).subscribe(t, ()=>{});
     expect(publishSubscribe.count(t)).toEqual(3);
   });

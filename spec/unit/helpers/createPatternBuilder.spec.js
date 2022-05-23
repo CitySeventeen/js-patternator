@@ -2,10 +2,10 @@
 import createNew from '../../../src/helpers/createPatternBuilder.js';
 
 describe('build pattern helper', function() {
-  var pattern;
-  var PatternBuilder;
-  var PatternClass;
-  var patternInstance;
+  let pattern;
+  let PatternBuilder;
+  let PatternClass;
+  let patternInstance;
   beforeEach(function() {
     pattern = createNew(options => {
       function Pattern(...args) {

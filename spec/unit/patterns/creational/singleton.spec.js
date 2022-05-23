@@ -2,10 +2,10 @@
 import singletonBuilder from '../../../../src/patterns/creational/singleton.js';
 
 describe('Singleton', function() {
-  var Singleton;
-  var ParentClass;
-  var singleton;
-  var executionSpy;
+  let Singleton;
+  let ParentClass;
+  let singleton;
+  let executionSpy;
   beforeEach(function() {
     executionSpy = jasmine.createSpy('executionSpy');
     function _Class(param1) {
@@ -25,9 +25,9 @@ describe('Singleton', function() {
     singleton = new Singleton('test');
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Singleton = singletonBuilder(emptyOptions).build();
-    var singleton = new Singleton();
+    let emptyOptions = undefined;
+    let Singleton = singletonBuilder(emptyOptions).build();
+    let singleton = new Singleton();
     singleton.test = 'testing';
     expect((new Singleton()).test).toEqual('testing');
   });

@@ -4,8 +4,8 @@ import singletonBuilder from '../../../../src/patterns/creational/singleton.js';
 import factoryBuilder from '../../../../src/patterns/creational/factory.js';
 
 describe('flyweight', function() {
-  var Flyweight;
-  var flyweight;
+  let Flyweight;
+  let flyweight;
   beforeEach(function() {
     Flyweight = flyweightBuilder({
       publics: {
@@ -18,21 +18,21 @@ describe('flyweight', function() {
     flyweight = new Flyweight();
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Flyweight = flyweightBuilder(emptyOptions).build();
-    var flyweight = new Flyweight();
+    let emptyOptions = undefined;
+    let Flyweight = flyweightBuilder(emptyOptions).build();
+    let flyweight = new Flyweight();
     flyweight.create('test', {test: 'testing'});
     expect(flyweight.flyweights['test'].test).toEqual('testing');
   });
   it('should NOT throw an error', function() {
     expect(function() {
-      var Flyweight = flyweightBuilder().build();
-      var flyweight = new Flyweight();
+      let Flyweight = flyweightBuilder().build();
+      let flyweight = new Flyweight();
       flyweight.create('test', {});
     }).not.toThrowError('Flyweight is missing heuristic public method.');
   });
   it('should create a flyweight object', function() {
-    var test = flyweight.create('test', {
+    let test = flyweight.create('test', {
       test: 'testing'
     });
     expect(test).toBeDefined();
@@ -42,7 +42,7 @@ describe('flyweight', function() {
     function creator(arg) {
       return { test: `testing-${arg}` };
     }
-    var test = flyweight.create('test', creator, 1);
+    let test = flyweight.create('test', creator, 1);
     expect(test).toBeDefined();
     expect(test.test).toEqual('testing-1');
   });
@@ -50,7 +50,7 @@ describe('flyweight', function() {
     flyweight.create('test', {
       test: 'testing'
     });
-    var test = flyweight.create('test', {
+    let test = flyweight.create('test', {
       test: 'already created'
     });
     expect(test).toBeDefined();
@@ -59,9 +59,9 @@ describe('flyweight', function() {
   });
 
   describe('Mid Level: Memoization with Flyweight', function() {
-    var FactorialMemoizationFlyweight;
-    var factorialMemoizationFlyweight;
-    var factorials;
+    let FactorialMemoizationFlyweight;
+    let factorialMemoizationFlyweight;
+    let factorials;
     beforeEach(function() {
       factorials = [2, 3, 4];
       FactorialMemoizationFlyweight = singletonBuilder(flyweightBuilder({
@@ -96,13 +96,13 @@ describe('flyweight', function() {
   });
 
   describe('Advanced Level: Object Creation', function() {
-    var LightObjectCreation;
-    var lightObjectCreation;
+    let LightObjectCreation;
+    let lightObjectCreation;
     beforeEach(function() {
       function HeavyObject(value) {
         this.data = value;
         this.store = [];
-        for(var i = 0; i < value; i++) {
+        for(let i = 0; i < value; i++) {
           this.store.push(i * Math.random());
         }
       }
@@ -117,12 +117,12 @@ describe('flyweight', function() {
             return this.find(params) || this.construct(params);
           },
           construct(params) {
-            var heavyObject = new HeavyObject(params.data);
+            let heavyObject = new HeavyObject(params.data);
             this.flyweights.push(heavyObject);
             return heavyObject;
           },
           find(params) {
-            for(var i = 0, l = this.flyweights.length; i < l; i++) {
+            for(let i = 0, l = this.flyweights.length; i < l; i++) {
               if(this.flyweights[i].data === params.data) {
                 return this.flyweights[i];
               }
@@ -149,10 +149,10 @@ describe('flyweight', function() {
   });
 
   describe('Advanced Level: Book Store', function() {
-    var Book;
-    var BookFactory;
-    var BookStore;
-    var bookStore;
+    let Book;
+    let BookFactory;
+    let BookStore;
+    let bookStore;
     beforeEach(function() {
       Book = function({title, author, genre, pageCount, publisherID, ISBN}) {
         this.title = title;
@@ -232,8 +232,8 @@ describe('flyweight', function() {
         checkoutDate: new Date(),
         checkoutMember: 1,
         dueReturnDate: (() => {
-          var date = new Date();
-          var days = 5;
+          let date = new Date();
+          let days = 5;
           date.setDate(date.getDate() + days);
           return date;
         })(),
@@ -245,8 +245,8 @@ describe('flyweight', function() {
         checkoutDate: new Date(),
         checkoutMember: 1,
         dueReturnDate: (() => {
-          var date = new Date();
-          var days = 5;
+          let date = new Date();
+          let days = 5;
           date.setDate(date.getDate() + days);
           return date;
         })(),

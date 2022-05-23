@@ -2,7 +2,7 @@
 import mvwBuilder from '../../../../src/patterns/architectural/mvw.js';
 
 function dispatchEvent(element, eventName, eventData) {
-  var ev = document.createEvent('Event');
+  let ev = document.createEvent('Event');
   ev.data = eventData;
   ev.initEvent(eventName, true, true);
   element.dispatchEvent(ev);

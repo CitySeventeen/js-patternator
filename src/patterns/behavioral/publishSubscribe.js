@@ -9,7 +9,7 @@ export default createPatternBuilder(options => {
 
   extend(PublishSubscribe.prototype, {
     subscribe(topic, callback) {
-      var topicSubscribers = this._getSubscribers(topic);
+      let topicSubscribers = this._getSubscribers(topic);
       if(topicSubscribers.indexOf(callback) === -1) {
         topicSubscribers.push(callback);
       }
@@ -17,8 +17,8 @@ export default createPatternBuilder(options => {
     },
 
     unsubscribe(topic, callback) {
-      var topicSubscribers = this._getSubscribers(topic);
-      var index = topicSubscribers.indexOf(callback);
+      let topicSubscribers = this._getSubscribers(topic);
+      let index = topicSubscribers.indexOf(callback);
       if(index > -1) {
         topicSubscribers.splice(index, 1);
       }
@@ -26,7 +26,7 @@ export default createPatternBuilder(options => {
     },
 
     publish(topic, ...data) {
-      var topicSubscribers = this._getSubscribers(topic);
+      let topicSubscribers = this._getSubscribers(topic);
       topicSubscribers.forEach(callback => { callback(...data); });
       return this;
     },

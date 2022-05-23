@@ -2,7 +2,7 @@ import extend from '../../helpers/extend.js';
 import createPatternBuilder from '../../helpers/createPatternBuilder.js';
 
 export default createPatternBuilder(options => {
-  var instance;
+  let instance;
 
   function Singleton(...args) {
     if(instance !== undefined) { return instance; }

@@ -2,13 +2,13 @@
 import extend from '../../../src/helpers/extend.js';
 
 describe('extend helper', function() {
-  var extendedObject;
-  var extendedFunction;
-  var extendedFromFunction;
-  var spyFunction;
-  var objExtender;
-  var fnExtender;
-  var extendedFromMultipleObjects;
+  let extendedObject;
+  let extendedFunction;
+  let extendedFromFunction;
+  let spyFunction;
+  let objExtender;
+  let fnExtender;
+  let extendedFromMultipleObjects;
   beforeEach(function() {
     objExtender = {
       test: 'test',

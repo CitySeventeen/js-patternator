@@ -2,9 +2,9 @@
 import commandBuilder from '../../../../src/patterns/behavioral/command.js';
 
 describe('command', function() {
-  var someMethodSpy;
-  var Command;
-  var command;
+  let someMethodSpy;
+  let Command;
+  let command;
   beforeEach(function() {
     someMethodSpy = jasmine.createSpy('someMethod');
     Command = commandBuilder({
@@ -16,24 +16,24 @@ describe('command', function() {
     command.execute('someMethod', 'test');
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Command = commandBuilder(emptyOptions).build();
-    var command = new Command();
-    var result = command.execute('test');
+    let emptyOptions = undefined;
+    let Command = commandBuilder(emptyOptions).build();
+    let command = new Command();
+    let result = command.execute('test');
     expect(result).toBeUndefined();
   });
   it('should execute a command', function() {
     expect(someMethodSpy).toHaveBeenCalledWith('test');
   });
   describe('Advanced Level: Undo Redo', function() {
-    var IUndoRedo;
-    var implementsInterface;
-    var UndoManager;
-    var undoManager;
-    var PointInTime;
-    var runSpy;
-    var redoSpy;
-    var undoSpy;
+    let IUndoRedo;
+    let implementsInterface;
+    let UndoManager;
+    let undoManager;
+    let PointInTime;
+    let runSpy;
+    let redoSpy;
+    let undoSpy;
     beforeEach(function() {
       PointInTime = function(data) {
         this.data = data;
@@ -50,7 +50,7 @@ describe('command', function() {
         constructor: function() {
           this.methods = {};
           this.pit = new PointInTime();
-          var execute = this.execute.bind(this);
+          let execute = this.execute.bind(this);
           this.execute = (...args) => {
             execute('run', ...args);
             this._onExecute(...args);
@@ -58,7 +58,7 @@ describe('command', function() {
         },
         publics: {
           _onExecute(...args) {
-            var pit = new PointInTime(args);
+            let pit = new PointInTime(args);
             pit.previous = this.pit;
             this.pit.next = pit;
             this.pit = pit;
@@ -76,8 +76,8 @@ describe('command', function() {
             if(this.pit.previous === null) {
               return;
             }
-            var mName = this.pit.data[0];
-            var method = this.methods[mName];
+            let mName = this.pit.data[0];
+            let method = this.methods[mName];
             if(method) {
               method.undo.apply(null, this.pit.data.slice(1));
             }
@@ -88,8 +88,8 @@ describe('command', function() {
               return;
             }
             this.pit = this.pit.next;
-            var mName = this.pit.data[0];
-            var method = this.methods[mName];
+            let mName = this.pit.data[0];
+            let method = this.methods[mName];
             if(method) {
               method.redo.apply(null, this.pit.data.slice(1));
             }

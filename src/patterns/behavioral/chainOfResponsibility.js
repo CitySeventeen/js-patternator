@@ -16,7 +16,7 @@ export default createPatternBuilder(options => {
     },
 
     run(...args) {
-      for(var i = 0; i < this.chain.length; i++) {
+      for(let i = 0; i < this.chain.length; i++) {
         let next = false;
         let val = this.chain[i].apply(null, [
           () => { next = true; },

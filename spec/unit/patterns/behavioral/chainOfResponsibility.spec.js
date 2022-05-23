@@ -2,13 +2,13 @@
 import chainOfResponsibilityBuilder from '../../../../src/patterns/behavioral/chainOfResponsibility.js';
 
 describe('chain of responsibility', function() {
-  var arraySpy;
-  var functionSpy;
-  var constructorSpy;
-  var shouldNotRunSpy;
-  var defaultSpy;
-  var ChainOfResponsibility;
-  var chain;
+  let arraySpy;
+  let functionSpy;
+  let constructorSpy;
+  let shouldNotRunSpy;
+  let defaultSpy;
+  let ChainOfResponsibility;
+  let chain;
   beforeEach(function() {
     constructorSpy = jasmine.createSpy('constructor');
     arraySpy = jasmine.createSpy('array');
@@ -55,10 +55,10 @@ describe('chain of responsibility', function() {
       .add(defaultSpy);
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var ChainOfResponsibility = chainOfResponsibilityBuilder(emptyOptions).build();
-    var chain = new ChainOfResponsibility();
-    var result = chain.add((next, t) => {
+    let emptyOptions = undefined;
+    let ChainOfResponsibility = chainOfResponsibilityBuilder(emptyOptions).build();
+    let chain = new ChainOfResponsibility();
+    let result = chain.add((next, t) => {
       return t;
     }).run('test');
     expect(result).toEqual('test');
@@ -80,7 +80,7 @@ describe('chain of responsibility', function() {
     expect(shouldNotRunSpy).not.toHaveBeenCalled();
   });
   it('can continue the chain even if callback was used', function() {
-    var t = chain.run('continue');
+    let t = chain.run('continue');
     expect(t).not.toEqual('shouldNotReturnThis');
     expect(defaultSpy).toHaveBeenCalled();
   });

@@ -2,12 +2,12 @@
 import mediatorBuilder from '../../../../src/patterns/behavioral/mediator.js';
 
 describe('mediator', function() {
-  var participantA;
-  var participantB;
-  var participantC;
-  var constructor;
-  var Mediator;
-  var mediator;
+  let participantA;
+  let participantB;
+  let participantC;
+  let constructor;
+  let Mediator;
+  let mediator;
   beforeEach(function() {
     participantA = jasmine.createSpy('A');
     participantB = jasmine.createSpy('B');
@@ -61,9 +61,9 @@ describe('mediator', function() {
     mediator.register('non-existant', participantC);
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Mediator = mediatorBuilder(emptyOptions).build();
-    var mediator = new Mediator();
+    let emptyOptions = undefined;
+    let Mediator = mediatorBuilder(emptyOptions).build();
+    let mediator = new Mediator();
     mediator.register('from', (arg) => arg);
     mediator.register('to', (message) => {
       expect(message).toEqual('message');

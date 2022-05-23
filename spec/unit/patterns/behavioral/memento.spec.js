@@ -5,11 +5,11 @@ import chainOfResponsibilityBuilder from '../../../../src/patterns/behavioral/ch
 import json from '../../../../src/helpers/json.js';
 
 describe('memento', function() {
-  var Memento;
-  var memento;
-  var history;
-  var parsedHistory;
-  var key;
+  let Memento;
+  let memento;
+  let history;
+  let parsedHistory;
+  let key;
   beforeEach(function() {
     spyOn(json, 'stringify').and.callThrough();
     spyOn(json, 'parse').and.callThrough();
@@ -22,11 +22,11 @@ describe('memento', function() {
     parsedHistory = memento.get(key);
   });
   it('should allow empty options', function() {
-    var emptyOptions = undefined;
-    var Memento = mementoBuilder(emptyOptions).build();
-    var memento = new Memento();
-    var key = memento.add({test: 'testing'});
-    var result = memento.get(key);
+    let emptyOptions = undefined;
+    let Memento = mementoBuilder(emptyOptions).build();
+    let memento = new Memento();
+    let key = memento.add({test: 'testing'});
+    let result = memento.get(key);
     expect(result.test).toEqual('testing');
   });
   it('should add an object', function() {
@@ -40,11 +40,11 @@ describe('memento', function() {
     expect(parsedHistory).toEqual(history);
   });
   describe('Advanced Level: Undo Redo using Memento, Command, and ChainOfResponsibility', function() {
-    var chain;
-    var UndoManager;
-    var undoManager;
-    var PointInTime;
-    var runSpy;
+    let chain;
+    let UndoManager;
+    let undoManager;
+    let PointInTime;
+    let runSpy;
     beforeEach(function() {
       PointInTime = function(index) {
         this.index = index;
@@ -53,12 +53,12 @@ describe('memento', function() {
       };
 
       chain = (...args) => {
-        var ChainOfResponsibility = chainOfResponsibilityBuilder({
+        let ChainOfResponsibility = chainOfResponsibilityBuilder({
           constructor: function() {
             this.add = this.add.bind(this);
           }
         }).build();
-        var overloader = new ChainOfResponsibility();
+        let overloader = new ChainOfResponsibility();
         args.forEach(overloader.add);
         return overloader.run;
       };
@@ -69,7 +69,7 @@ describe('memento', function() {
           this.state = {};
           this.pit = new PointInTime(this.add(this.state));
 
-          var execute = this.execute.bind(this);
+          let execute = this.execute.bind(this);
           this.execute = chain(
             (next, ...args) => {
               execute(...args);
@@ -78,7 +78,7 @@ describe('memento', function() {
             this._onExecute.bind(this)
           );
 
-          var add = this.add.bind(this);
+          let add = this.add.bind(this);
           this.add = chain(
             (next, method, obj) => {
               if(typeof method !== 'string') {
@@ -96,7 +96,7 @@ describe('memento', function() {
             if(_ !== 'run') {
               return this.execute.apply(null, ['run', _].concat(args));
             }
-            var o = new PointInTime(this.add(this.state));
+            let o = new PointInTime(this.add(this.state));
             o.previous = this.pit;
             this.pit.next = o;
             this.pit = o;
