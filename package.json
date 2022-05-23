@@ -17,7 +17,7 @@
     "setup": "npm run copyhooks",
     "reinstall": "rm -rf node_modules/ && npm install",
     "copyhooks": "cp -fr ./build/pre-commit .git/hooks/pre-commit",
-    "test jasmine": ""
+    "test jasmine": "node ./node_modules/jasmine/bin/jasmine.js"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,9 @@
     "js-patternator"
   ],
   "author": "Pablo Garcia",
-  "contributors": ["Raffaele Balsamo <raffaelebalsamo91@gmail.com> (https://github.com/CitySeventeen)"],
+  "contributors": [
+    "Raffaele Balsamo <raffaelebalsamo91@gmail.com> (https://github.com/CitySeventeen)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pgarciacamou/go-patterns/issues"
@@ -59,6 +61,7 @@
     "eslint-plugin-async-await": "0.0.0",
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-flowtype": "^2.30.4",
+    "jasmine": "^4.1.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-browserify": "^5.0.5",
@@ -67,5 +70,6 @@
     "phantomjs-prebuilt": "^2.1.7",
     "uglify-js": "^2.8.21",
     "watchify": "^3.7.0"
-  }
+  },
+  "dependencies": {}
 }
